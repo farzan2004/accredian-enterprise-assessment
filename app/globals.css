@@ -8,3 +8,35 @@ body {
   background: #fff;
   color: #111827;
 }
+
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.marquee {
+  width: max-content;
+  animation: marquee 18s linear infinite;
+}
+
+.course-prev.swiper-button-disabled,
+.course-next.swiper-button-disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+.course-prev,
+.course-next {
+  transition: all 0.2s ease;
+}
+
+.course-prev:hover:not(.swiper-button-disabled),
+.course-next:hover:not(.swiper-button-disabled) {
+  transform: scale(1.15);
+}
