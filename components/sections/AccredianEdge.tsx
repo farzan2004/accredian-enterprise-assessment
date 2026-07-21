@@ -164,6 +164,96 @@ const items = [
     },
 ];
 
+const items2 = [
+
+    {
+        title: "Tech Professionals",
+        desc: "Enhance expertise, embrace tech, drive innovation.",
+        icon: (<svg
+            xmlns="http://www.w3.org/2000/svg"
+            width={24}
+            height={24}
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth={2}
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            className="w-10 h-10 sm:w-14 sm:h-14 mb-2"
+        >
+            <path d="m9 10 2 2 4-4" />
+            <rect width={20} height={14} x={2} y={3} rx={2} />
+            <path d="M12 17v4" />
+            <path d="M8 21h8" />
+        </svg>)
+    },
+
+    {
+        title: "Non-Tech Professionals",
+        desc: "Adapt digitally, collaborate in tech environments.",
+        icon: (<svg
+            xmlns="http://www.w3.org/2000/svg"
+            width={24}
+            height={24}
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth={2}
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            className="w-10 h-10 sm:w-14 sm:h-14 mb-2"
+        >
+            <path d="m14.5 12.5-5-5" />
+            <path d="m9.5 12.5 5-5" />
+            <rect width={20} height={14} x={2} y={3} rx={2} />
+            <path d="M12 17v4" />
+            <path d="M8 21h8" />
+        </svg>)
+    },
+
+    {
+        title: "Emerging Professionals",
+        desc: "Develop powerful skills for rapid career growth.",
+        icon: (<svg
+            xmlns="http://www.w3.org/2000/svg"
+            width={24}
+            height={24}
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth={2}
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            className="w-10 h-10 sm:w-14 sm:h-14 mb-2"
+        >
+            <path d="M21.42 10.922a1 1 0 0 0-.019-1.838L12.83 5.18a2 2 0 0 0-1.66 0L2.6 9.08a1 1 0 0 0 0 1.832l8.57 3.908a2 2 0 0 0 1.66 0z" />
+            <path d="M22 10v6" />
+            <path d="M6 12.5V16a6 3 0 0 0 12 0v-3.5" />
+        </svg>)
+    },
+
+    {
+        title: "Senior Professionals",
+        desc: "Strengthen leadership, enhance strategic decisions.",
+        icon: (<svg
+            xmlns="http://www.w3.org/2000/svg"
+            width={24}
+            height={24}
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth={2}
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            className="w-10 h-10 sm:w-14 sm:h-14 mb-2"
+        >
+            <path d="M16 20V4a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16" />
+            <rect width={20} height={14} x={2} y={6} rx={2} />
+        </svg>)
+    },
+
+]
+
 function CourseCard({ course }: { course: any }) {
     return (
         <div className="overflow-hidden rounded-2xl border border-gray-200 bg-white shadow-md">
@@ -190,6 +280,35 @@ function CourseCard({ course }: { course: any }) {
 
         </div>
     );
+}
+
+function AudienceCard({
+    icon,
+    title,
+    desc,
+}: {
+    icon: React.ReactNode;
+    title: string;
+    desc: string;
+}) {
+
+    return (
+        <div className="flex items-start gap-3">
+
+            <div className="shrink-0 text-white">
+                {icon}
+            </div>
+
+            <div>
+                <h3 className="text-xl lg:text-2xl font-bold text-white">
+                    {title}
+                </h3>
+                <p className="mt-1 lg:mt-2 text-sm lg:text-base leading-5 text-white/90">
+                    {desc}
+                </p>
+            </div>
+        </div>
+    )
 }
 
 const courses = [
@@ -226,7 +345,7 @@ export default function AccredianEdge() {
                         <span className="text-[#287ae3]">Accredian Edge</span>
                     </h2>
 
-                    <p className="mt-4 text-lg font-normal">
+                    <p className="mt-2 text-base font-semibold">
                         Key Aspects of {" "}
                         <span className="text-[#287ae3]">Our Strategic Training</span>
                     </p>
@@ -253,13 +372,13 @@ export default function AccredianEdge() {
                 </div>
 
                 {/* Heading */}
-                <div className="text-center py-8 md:py-10">
+                <div className="text-center pt-8 pb-4 md:pt-10 md:pb-6">
                     <h2 className="text-2xl lg:text-4xl font-bold">
                         Our{" "}
                         <span className="text-[#287ae3]">Domain Expertise</span>
                     </h2>
 
-                    <p className="mt-4 text-lg font-normal">
+                    <p className="mt-2 text-base font-semibold">
                         <span className="text-[#287ae3]">Specialized Programs {" "}</span>
                         Designed to Fuel Innovation
                     </p>
@@ -294,16 +413,16 @@ export default function AccredianEdge() {
                 </div>
 
                 {/* Heading */}
-                <div className="text-center py-8 md:py-10">
+                <div className="text-center pt-8 pb-4 md:pt-10 md:pb-6">
                     <h2 className="text-2xl lg:text-4xl font-bold">
                         Tailored{" "}
                         <span className="text-[#287ae3]">Course Segmentation</span>
                     </h2>
 
-                    <p className="mt-4 text-lg font-normal">
+                    <p className="mt-2 text-base font-semibold">
                         Explore {" "}
                         <span className="text-[#287ae3]">Custom-fit Courses {" "}</span>
-                         Designed to Address Every Professional Focus
+                        Designed to Address Every Professional Focus
                     </p>
                 </div>
                 <div className="mt-6 hidden lg:grid grid-cols-4 gap-8">
@@ -343,9 +462,59 @@ export default function AccredianEdge() {
                             </SwiperSlide>
                         ))}
                     </Swiper>
+                </div>
+
+                <div className="rounded-3xl bg-[#287ae3] px-8 py-10 mt-16 lg:px-10 lg:pt-10 lg:pb-0">
+
+                    <div className="grid gap-10 lg:grid-cols-[1.25fr_1.6fr]">
+
+                        {/* Left */}
+                        <div>
+                            <p className="text-xl font-medium text-white">
+                                Who Should Join?
+                            </p>
+
+                            <h2 className="mt-3 text-2xl lg:text-4xl font-bold leading-tight text-white">
+                                Strategic Skill Enhancement
+                            </h2>
+
+                            {/* Hidden below lg */}
+                            <div className="mt-12 hidden justify-center lg:flex">
+                                <img
+                                    src="Accredian_edge/imagehuman.png"
+                                    alt=""
+                                    className="w-[75%] max-w-md object-contain"
+                                />
+                            </div>
+
+                        </div>
+
+                        {/* Right */}
+                        <div
+                            className="
+                    grid
+                    grid-cols-1
+                    gap-5
+
+                    md:grid-cols-2
+                "
+                        >
+                            {items2.map((item) => (
+                                <AudienceCard
+                                    key={item.title}
+                                    icon={item.icon}
+                                    title={item.title}
+                                    desc={item.desc}
+                                />
+                            ))}
+
+                        </div>
+
+                    </div>
 
                 </div>
             </Container>
         </section>
+
     );
 }
