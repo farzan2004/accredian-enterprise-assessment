@@ -6,7 +6,11 @@ import Container from "../ui/Container";
 import { faqCategories } from "@/data/faqs";
 import Button from "../ui/Button";
 
-export default function FAQs() {
+interface Props {
+    onEnquire: () => void;
+}
+
+export default function FAQs({ onEnquire }: Props) {
     const [selectedCategory, setSelectedCategory] = useState(0);
     const [openQuestion, setOpenQuestion] = useState<number | null>(null);
     const [mobileStart, setMobileStart] = useState(0);
@@ -139,8 +143,8 @@ export default function FAQs() {
                 </div>
 
                 {/* CTA */}
-                <div className="mt-14 flex justify-center">
-                    <Button className="mt-10 w-fit">
+                <div className="mt-10 flex justify-center">
+                    <Button onClick={onEnquire} className="mt-2 w-fit">
                         Enquire Now
                     </Button>
                 </div>

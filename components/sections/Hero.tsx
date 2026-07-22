@@ -1,6 +1,12 @@
 import Container from "@/components/ui/Container";
 import Button from "@/components/ui/Button";
-export default function Hero() {
+
+interface Props {
+    onEnquire: () => void;
+}
+
+
+export default function Hero({ onEnquire }: Props) {
     return (
         <section id="home" className="py-8 lg:py-12">
             <Container>
@@ -38,7 +44,7 @@ export default function Hero() {
                             </div>
                         </div>
 
-                        <Button className="mt-10 w-full sm:w-fit">
+                        <Button onClick={onEnquire} className="mt-10 w-full sm:w-fit">
                             Enquire Now
                         </Button>
                     </div>

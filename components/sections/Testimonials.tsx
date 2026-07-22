@@ -6,7 +6,10 @@ import { ChevronLeft, ChevronRight } from "lucide-react";
 import Container from "@/components/ui/Container";
 import { testimonials } from "@/data/testimonials";
 
-export default function Testimonials() {
+interface Props {
+    onEnquire: () => void;
+}
+export default function Testimonials({ onEnquire }: Props) {
     const [current, setCurrent] = useState(0);
 
     return (
@@ -156,7 +159,7 @@ export default function Testimonials() {
                         </div>
 
                         {/* Button */}
-                        <button
+                        <button onClick={onEnquire}
                             className="rounded-xl bg-white px-8 py-4 text-lg font-semibold text-[#287ae3]
                 transition-all duration-300 hover:scale-105 hover:shadow-xl
                 active:scale-95"
