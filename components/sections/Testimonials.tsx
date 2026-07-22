@@ -13,7 +13,7 @@ export default function Testimonials({ onEnquire }: Props) {
     const [current, setCurrent] = useState(0);
 
     return (
-        <section className="py-20">
+        <section id="testimonials" className="scroll py-20">
             <Container>
                 {/* Heading */}
                 <div className="text-center">

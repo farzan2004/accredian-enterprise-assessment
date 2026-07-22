@@ -11,12 +11,14 @@ import Testimonials from "@/components/sections/Testimonials";
 import { useState } from "react";
 import Footer from "@/components/layout/Footer";
 import EnquiryModal from "@/components/forms/EnquiryModal";
+import useActiveSection from "@/hooks/useActiveSection";
 
 export default function Home() {
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const activeSection = useActiveSection();
   return (
     <>
-      <Navbar />
+      <Navbar activeSection={activeSection} />
       <main className="pt-24">
         <Hero onEnquire={() => setIsModalOpen(true)} />
         <Stats />

@@ -108,7 +108,7 @@ function StepCard({ step }: { step: Step }) {
 
 export default function HowItWorks() {
     return (
-        <section id="howitworks" className="py-7 md:py-9">
+        <section id="how-it-works" className="scroll py-7 md:py-9">
             <Container>
                 {/* Steps */}
                 <div className="text-center pt-8 pb-4 md:pt-9 md:pb-6">

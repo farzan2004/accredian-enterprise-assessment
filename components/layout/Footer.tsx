@@ -33,19 +33,23 @@ export default function Footer({ onEnquire }: Props) {
             />
 
             <div className="mt-4 flex gap-5 text-xl text-gray-700">
-              <a href="https://www.linkedin.com/company/your-company" target="_blank" rel="noopener noreferrer">
+              <a href="https://www.facebook.com/accredianlearn" target="_blank" rel="noopener noreferrer">
+                <FaFacebookSquare className="cursor-pointer transition hover:text-[#287ae3]" />
+              </a>
+
+              <a href="https://www.linkedin.com/school/accredianedu" target="_blank" rel="noopener noreferrer">
                 <FaLinkedin className="cursor-pointer transition hover:text-[#287ae3]" />
               </a>
 
-              <a href="https://twitter.com/your-account" target="_blank" rel="noopener noreferrer">
+              <a href="https://x.com/accredianedu" target="_blank" rel="noopener noreferrer">
                 <FaTwitter className="cursor-pointer transition hover:text-[#287ae3]" />
               </a>
 
-              <a href="https://www.instagram.com/your-account" target="_blank" rel="noopener noreferrer">
+              <a href="https://www.instagram.com/accredian_edu" target="_blank" rel="noopener noreferrer">
                 <FaInstagram className="cursor-pointer transition hover:text-[#287ae3]" />
               </a>
 
-              <a href="https://www.youtube.com/@your-channel" target="_blank" rel="noopener noreferrer">
+              <a href="https://www.youtube.com/channel/UCE0L_4ADPU2iyKnDJ0xRzyA" target="_blank" rel="noopener noreferrer">
                 <FaYoutube className="cursor-pointer transition hover:text-[#287ae3]" />
               </a>
             </div>

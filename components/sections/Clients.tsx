@@ -12,7 +12,7 @@ const clients = [
 
 export default function Clients() {
   return (
-    <section id="clients" className="py-14 md:py-18">
+    <section id="clients" className="scroll py-14 md:py-18">
       <Container>
         {/* Heading */}
         <div className="text-center">

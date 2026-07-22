@@ -1,6 +1,7 @@
 "use client";
 import Button from "@/components/ui/Button";
 import { X, ChevronDown } from "lucide-react";
+import toast from "react-hot-toast";
 
 import { useForm } from "react-hook-form";
 
@@ -13,20 +14,41 @@ export default function EnquiryModal({
     open,
     onClose,
 }: EnquiryModalProps) {
-    if (!open) return null;
-    const onSubmit = (data: any) => {
-        console.log(data);
+    const onSubmit = async (data: any) => {
+        try {
+            const res = await fetch("/api/enquiry", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify(data),
+            });
+
+            if (!res.ok) throw new Error();
+
+            toast.success("Enquiry submitted successfully!");
+            onClose();
+        } catch {
+            toast.error("Something went wrong. Please try again.");
+        }
+    };
+    const handleClose = () => {
+        reset();
         onClose();
     };
     const {
         register,
         handleSubmit,
+        reset,
         formState: { errors },
-    } = useForm();
+    } = useForm({
+        mode: "onChange",
+    });
+    if (!open) return null;
     return (
         <div
             className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 p-4"
-            onClick={onClose}
+            onClick={handleClose}
         >
             <div
                 className="relative flex w-full max-w-3xl overflow-hidden rounded-2xl bg-white shadow-2xl"
@@ -45,7 +67,7 @@ export default function EnquiryModal({
                 <div className="w-full p-8 lg:w-[52%]">
 
                     <button
-                        onClick={onClose}
+                        onClick={handleClose}
                         className="absolute right-5 top-5 rounded-full p-1 text-gray-500 transition hover:bg-gray-100"
                     >
                         <X size={26} />
@@ -73,7 +95,12 @@ export default function EnquiryModal({
                             type="email"
                             placeholder="Enter Email"
                             className="w-full border-b border-gray-300 py-2 outline-none focus:border-[#287ae3]"
-                            {...register("email", { required: "Email is required", pattern: /^\S+@\S+$/i })}
+                            {...register("email", {
+                                required: "Email is required", pattern: {
+                                    value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
+                                    message: "Please enter a valid email address",
+                                },
+                            })}
                         />
                         {errors.email && (
                             <p className="mt-1 text-sm text-red-500">
@@ -81,7 +108,9 @@ export default function EnquiryModal({
                             </p>
                         )}
                         <div className="flex items-center gap-3 border-b border-gray-300 py-2">
-                            <select
+                            <select {...register("code", {
+                                required: "code is required",
+                            })}
                                 className="bg-transparent text-gray-700 outline-none"
                                 defaultValue="+91"
                             >
@@ -118,7 +147,9 @@ export default function EnquiryModal({
                         )}
 
                         <div className="border-b border-gray-300">
-                            <select
+                            <select {...register("domain", {
+                                required: "Domain is required",
+                            })}
                                 className="w-full bg-transparent py-2 text-gray-700 outline-none"
                                 defaultValue=""
                             >
@@ -142,16 +173,25 @@ export default function EnquiryModal({
                             type="number"
                             placeholder="Enter No. of candidates"
                             className="w-full border-b border-gray-300 py-2 outline-none focus:border-[#287ae3]"
-                            {...register("candidates", { required: "Number of candidates is required" })}
+                            {...register("candidates", {
+                                required: "Number of candidates is required",
+                                valueAsNumber: true,
+                                min: {
+                                    value: 1,
+                                    message: "Number of candidates must be greater than 0",
+                                },
+                            })}
                         />
+
                         {errors.candidates && (
                             <p className="mt-1 text-sm text-red-500">
                                 {errors.candidates.message as string}
                             </p>
                         )}
-
                         <div className="border-b border-gray-300">
-                            <select
+                            <select {...register("mode", {
+                                required: "Mode is required",
+                            })}
                                 className="w-full bg-transparent py-2 text-gray-700 outline-none"
                                 defaultValue=""
                             >

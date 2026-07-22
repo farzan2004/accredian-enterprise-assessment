@@ -17,7 +17,11 @@ const navItems = [
     { label: "Testimonials", href: "#testimonials" },
 ];
 
-export default function Navbar() {
+interface NavbarProps {
+    activeSection: string;
+}
+
+export default function Navbar({ activeSection }: NavbarProps) {
     const [open, setOpen] = useState(false);
 
     return (
@@ -26,7 +30,7 @@ export default function Navbar() {
                 <div className="flex h-20 items-center justify-between">
                     <Link href="/" className="flex items-start">
                         <Image
-                            src="/logo.webp" // change if yours has another name
+                            src="/logo.webp"
                             alt="Accredian"
                             width={120}
                             height={28}
@@ -35,44 +39,70 @@ export default function Navbar() {
                     </Link>
 
                     {/* Desktop */}
-                    <nav className="hidden lg:flex items-center gap-10">
-                        {navItems.map((item) => (
-                            <a
-                                key={item.label}
-                                href={item.href}
-                                className="font-medium hover:text-blue-600"
-                            >
-                                {item.label}
-                            </a>
-                        ))}
+                    <nav className="hidden items-center gap-10 lg:flex">
+                        {navItems.map((item) => {
+                            const isActive = activeSection === item.href;
+
+                            return (
+                                <a
+                                    key={item.href}
+                                    href={item.href}
+                                    className={`group relative inline-block pb-1 text-base font-medium transition-colors duration-300 ${isActive
+                                        ? "text-[#287ae3]"
+                                        : "text-gray-800 hover:text-[#287ae3]"
+                                        }`}
+                                >
+                                    {item.label}
+
+                                    <span
+                                        className={`absolute left-0 bottom-0 h-[2px] bg-[#287ae3] transition-all duration-300 ${isActive
+                                            ? "w-full"
+                                            : "w-0 group-hover:w-full"
+                                            }`}
+                                    />
+                                </a>
+                            );
+                        })}
                     </nav>
 
-                    {/* Mobile */}
+                    {/* Mobile Button */}
                     <button
-                        className="lg:hidden"
                         onClick={() => setOpen(!open)}
+                        className="lg:hidden"
                     >
                         {open ? <X size={30} /> : <Menu size={30} />}
                     </button>
                 </div>
             </Container>
 
+            {/* Mobile Menu */}
             {open && (
-                <div className="absolute right-4 top-full mt-2 max-w-64 overflow-hidden rounded-2xl bg-white shadow-2xl ring-1 ring-gray-200 lg:hidden">
-                    <Container>
-                        <nav className="flex flex-col py-4">
-                            {navItems.map((item) => (
+                <div className="absolute right-4 top-full mt-3 w-48 overflow-hidden rounded-2xl border border-gray-100 bg-white py-3 shadow-2xl lg:hidden">
+                    <nav className="flex flex-col">
+                        {navItems.map((item) => {
+                            const isActive = activeSection === item.href;
+
+                            return (
                                 <a
-                                    key={item.label}
+                                    key={item.href}
                                     href={item.href}
-                                    className="py-3"
                                     onClick={() => setOpen(false)}
+                                    className={`group relative mx-2 block px-3 py-2 text-base font-medium transition-colors duration-300 ${isActive
+                                            ? "text-[#287ae3]"
+                                            : "text-gray-700 hover:text-[#287ae3]"
+                                        }`}
                                 >
                                     {item.label}
+
+                                    <span
+                                        className={`absolute bottom-2 left-4 h-[2px] bg-[#287ae3] transition-all duration-300 ${isActive ? "w-[calc(100%-2rem)]" : "w-0 group-hover:w-[calc(100%-2rem)]"
+                                            }`}
+                                    />
                                 </a>
-                            ))}
-                        </nav>
-                    </Container>
+
+                            );
+                        })}
+                    </nav>
                 </div>
             )}
         </header>

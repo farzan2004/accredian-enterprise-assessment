@@ -336,7 +336,7 @@ const courses = [
 
 export default function AccredianEdge() {
     return (
-        <section id="clients" className="py-14 md:py-18">
+        <section id="edge" className="scroll py-14 md:py-18">
             <Container>
                 {/* Heading */}
                 <div className="text-center">

@@ -16,7 +16,7 @@ const stats = [
 
 export default function Stats() {
     return (
-        <section id="stats" className="py-14 md:py-18">
+        <section id="stats" className="scroll py-14 md:py-18">
             <Container>
                 <div className="text-center">
                     <h2 className="text-4xl font-bold">

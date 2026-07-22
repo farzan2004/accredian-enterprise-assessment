@@ -19,7 +19,7 @@ export default function FAQs({ onEnquire }: Props) {
     const visibleCategories = faqCategories.slice(mobileStart, mobileStart + 2);
 
     return (
-        <section id="faqs" className="py-7 md:py-9">
+        <section id="faqs" className="scroll py-7 md:py-9">
             <Container>
                 {/* Heading */}
                 <div className="text-center pt-8 pb-4 md:pt-9 md:pb-2">

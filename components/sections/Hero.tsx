@@ -8,7 +8,7 @@ interface Props {
 
 export default function Hero({ onEnquire }: Props) {
     return (
-        <section id="home" className="py-8 lg:py-12">
+        <section id="home" className="scroll py-8 lg:py-12">
             <Container>
                 <div className="mx-auto flex min-h-100 w-full max-w-7xl flex-col items-center justify-between rounded-3xl bg-[#edf5ff] px-8 py-10 shadow-2xl lg:flex-row lg:px-14 lg:py-8">
 

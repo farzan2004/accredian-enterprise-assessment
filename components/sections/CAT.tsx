@@ -2,7 +2,7 @@ import Container from "../ui/Container";
 
 export default function CAT() {
     return (
-        <section id="cat" className="py-14 md:py-18">
+        <section id="cat" className="scroll py-14 md:py-18">
             <Container>
                 {/* Heading */}
                 <div className="bg-[#f5f9ff]">
