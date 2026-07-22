@@ -36,7 +36,7 @@ npm install
 Create a `.env.local` file in the project root.
 
 ```env
-MONGODB_URI=your_mongodb_connection_string
+MONGODB_URI=mongodb+srv://farzanrashid2004_db_user:R1tXnY0Fooqejk6t@accredian-assignment.q2bzly0.mongodb.net/?appName=accredian-assignment
 ```
 
 ## 4. Run the development server
