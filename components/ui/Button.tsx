@@ -11,7 +11,7 @@ export default function Button({
 }: ButtonProps) {
   return (
     <button
-      className={`rounded-lg shadow-md bg-blue-600 px-7 py-2 font-medium text-white transition hover:bg-blue-500 ${className}`}
+      className={`cursor-pointer rounded-lg shadow-md bg-blue-600 px-7 py-2 font-medium text-white transition hover:bg-blue-500 hover:scale-105 ${className}`}
       {...props}
     >
       {children}
